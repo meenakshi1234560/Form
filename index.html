@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FORM</title>
+    <link rel="stylesheet" href="index.css" type="text/css">
+    <script>
+        function validation(){
+            var name=document.forms.regform.name.value;
+            var regname=/[A-Z a-z]/;
+            if((name==""))
+            {
+                alert("No space");
+                return false;
+            }
+            if(regname.test(name))
+            {
+                alert("Please enter name properly");
+                return false;
+            }
+            var phone=document.forms.regform.phno.value;
+            var regph=/[0-9]/;
+            if((phone==""))
+            {
+                alert("No space");
+                return false;
+            }
+            if(regph.test(phone))
+            {
+                alert("Please enter number properly");
+                return false;
+            }
+            if(phone.length!=10)
+            {
+                alert("enter 10 numbers");
+                return false;
+            }
+            var mail=document.forms.regform.email.value;
+            var em=/[a-zA-Z0-9]@[a-z].[a-z]/;
+            if(mail="")
+            {
+                alert("No space");
+                return false;
+            }
+            if(!em.test(mail))
+            {
+                alert("Enter the mailid properly");
+                return false;
+            }
+            var pw=document.forms.regform.password.value;
+            var pw2=document.forms.regform.confirmpassword.value;
+            if(pw == "") {  
+                  alert("Fill the password please"); 
+                  return false;  
+                          }  
+                          if(pw==password||pw==document.forms.regform.name.value)
+            {
+                alert("password should not be name or password");
+                return false;
+            } 
+  
+                  if(pw.length < 8) {  
+              alert("password must contain atleast 8 chars");
+                 return false;  
+                    }  
+
+  
+                 if(pw.length > 15) {  
+                 alert("Not more than 15 chars in password")
+                return false;  
+  } 
+  if(pw != pw2)  
+  {   
+    alert("Passwords did not match");  
+  } else {  
+    alert("Password matched ");  
+  }  
+  
+            return true;
+        }
+
+    </script>
+</head>
+<body>
+    <div class="main">
+        <div class="register">
+            <h2>FORM</h2>
+            <form name="regform" id="register" method="post">
+                Name: <input type="text" name="name" id="name"/> <br><br>  
+                Phone no:<input type="text" name="phno" id="name"/><br><br>
+                Email: <input type="email"  name="email" id="name"/><br><br>
+                Password:<input type="password" name="password" id="name"/><br><br>
+                Confirm password:<input type="password" name="confirmpassword" id="name"/><br><br>
+               <input type="submit" onclick="validation()"  value="submit" name="submit"  id="submit">
+               <input type="reset" value="cancel" id="submit"><br><br>
+
+            </form>
+        </div>
+    </div>
+
+   </body>
+</html>
